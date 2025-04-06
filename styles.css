@@ -1,0 +1,1109 @@
+/* General Styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #1abc9c;
+    --text-color: #333;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --slide-transition: all 0.5s ease;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.full-width-image {
+    width: 100%;
+    display: block;
+    margin: 1rem 0;
+}
+
+.image-caption {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Controls */
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.control-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.control-btn:hover {
+    background-color: var(--primary-color);
+}
+
+#slide-number {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Presentation Container */
+.presentation-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slides */
+.slide {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: var(--slide-transition);
+    background-color: white;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+}
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-header {
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.presenter {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.slide-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.slide-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.slide-body::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 3px;
+}
+
+/* Title Slide */
+.title-slide {
+    text-align: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.title-slide h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.title-slide h2 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.institute-logo {
+    max-width: 120px;
+    margin-bottom: 2rem;
+}
+
+.presenters {
+    margin: 2rem 0;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.member {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.institute-info {
+    margin-top: 2rem;
+    color: #666;
+}
+
+/* Two Column Layout */
+.two-column {
+    display: flex;
+    gap: 2rem;
+}
+
+.column-left, .column-right {
+    flex: 1;
+}
+
+.info-box {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.bullet-points ul {
+    list-style-type: none;
+}
+
+.bullet-points li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.bullet-points li:before {
+    content: "•";
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 4px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: 4px solid var(--secondary-color);
+    border-radius: 50%;
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Comparison Table */
+.comparison-table {
+    padding: 1rem 0;
+}
+
+.feature-comparison {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.feature-comparison th, .feature-comparison td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.feature-comparison th {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 500;
+}
+
+.feature-comparison tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.info-callout {
+    background-color: #e8f4fd;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Process Diagram */
+.process-diagram {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.step-icon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+}
+
+.process-arrow {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 0.3rem 0;
+}
+
+/* Info Cards */
+.info-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Brain Mapping */
+.brain-mapping {
+    padding: 1rem 0;
+}
+
+.brain-image-container {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.brain-region {
+    position: absolute;
+    z-index: 2;
+}
+
+.region-dot {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.region-info {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.region-dot:hover + .region-info {
+    opacity: 1;
+}
+
+.insight-box {
+    background-color: #e8f4fd;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+
+/* Process Flowchart */
+.process-flowchart {
+    margin: 2rem 0;
+}
+
+.process-box {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.process-box h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Application Grid */
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.application-card {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.app-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Research Examples */
+.research-examples {
+    margin: 1.5rem 0;
+}
+
+.research-case {
+    margin-bottom: 2rem;
+}
+
+.research-results {
+    background-color: #e8f4fd;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-top: 0.8rem;
+}
+
+.result-comparison {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.comparison-item {
+    flex: 1;
+    text-align: center;
+}
+
+.comparison-image {
+    margin-bottom: 0.8rem;
+    box-shadow: var(--shadow);
+}
+
+/* Challenges */
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.challenge-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.challenge-meter {
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 4px;
+    margin: 0.8rem 0;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+}
+
+.quote-box {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+/* Ethics Content */
+.ethics-content {
+    padding: 1rem 0;
+}
+
+.ethics-scales {
+    display: flex;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+.scale-side {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.scale-center {
+    margin: 0 1.5rem;
+    font-size: 3rem;
+    padding-top: 2rem;
+}
+
+.ethics-framework {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.framework-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.framework-item {
+    flex-basis: calc(50% - 0.5rem);
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Future Paths */
+.future-paths {
+    padding: 1rem 0;
+}
+
+.path-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.path-item {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-connector {
+    height: 4px;
+    background-color: var(--secondary-color);
+    flex: 0.1;
+    margin-top: 2.5rem;
+}
+
+/* Recommendations */
+.recommendations {
+    padding: 1rem 0;
+}
+
+.recommendation-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.rec-card {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.rec-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.recommendation-note {
+    background-color: #e8f4fd;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+
+/* Conclusion */
+.conclusion {
+    padding: 1rem 0;
+}
+
+.conclusion-summary {
+    background-color: #e8f4fd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 2rem 0;
+    color: var(--primary-color);
+}
+
+.key-takeaways {
+    margin-top: 2rem;
+}
+
+.takeaway-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.takeaway-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.takeaway-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Acknowledgments */
+.acknowledgments {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.thank-you {
+    margin: 2rem 0;
+}
+
+.thank-you h3 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+.acknowledgment-content {
+    margin: 2rem 0;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-info {
+    margin-top: 2rem;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.member-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 auto 0.8rem;
+}
+
+.contact-info {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .two-column,
+    .ethics-scales,
+    .path-timeline,
+    .result-comparison {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .challenges-grid,
+    .application-grid,
+    .recommendation-cards,
+    .takeaway-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-cards {
+        flex-direction: column;
+    }
+
+    .team-grid {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .timeline-connector {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .slide {
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}
+
+/* Neural Representation Slide Specific Styles */
+
+/* Main slide container styling */
+.neural-representation-slide {
+    background: linear-gradient(to bottom right, #f8f9fa, #e8f4fd);
+  }
+
+  /* Container for the neural mapping content */
+  .neural-mapping-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Visual system diagram styling */
+  .visual-system-diagram {
+    flex: 1;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+  }
+
+  .neural-diagram {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .neural-diagram:hover {
+    transform: scale(1.02);
+  }
+
+  .diagram-caption {
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+
+  /* Neural content column styling */
+  .neural-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Process explanation section */
+  .neural-process-explanation {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .process-explanation {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .process-item {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .process-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .process-item h4 {
+    margin-bottom: 0.5rem;
+    color: #3498db;
+  }
+
+  /* Brain features grid */
+  .brain-features {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .feature {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    opacity: 0; /* Start invisible for animation */
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .feature h4 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  /* Brain regions section */
+  .brain-regions-container {
+    margin-top: 2rem;
+  }
+
+  .brain-regions-map {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .brain-tech-image {
+    flex: 1;
+    max-width: 50%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .brain-tech {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .brain-tech-image:hover .brain-tech {
+    transform: scale(1.05);
+  }
+
+  .regions-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .region-item {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .region-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .region-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+  }
+
+  .region-bar {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+  }
+
+  .region-fill {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 4px;
+    width: 0; /* Start at 0 for animation */
+    transition: width 1.5s ease-in-out;
+  }
+
+  .region-function {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  /* Neural insight box */
+  .neural-insight-box {
+    background-color: #ecf0f1;
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-top: 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #3498db;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .neural-mapping-container,
+    .brain-regions-map {
+      flex-direction: column;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .brain-tech-image {
+      max-width: 100%;
+    }
+  }
+
+/* Print styles for PDF conversion */
+@media print {
+    .slide {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        page-break-after: always;
+        opacity: 1;
+        transform: none;
+        position: relative;
+        height: auto;
+    }
+
+    .controls {
+        display: none;
+    }
+
+    body {
+        overflow: visible;
+    }
+
+    .presentation-container {
+        height: auto;
+        overflow: visible;
+    }
+
+    .content {
+        box-shadow: none;
+        height: auto;
+    }
+
+    .slide-body {
+        overflow: visible;
+    }
+}
